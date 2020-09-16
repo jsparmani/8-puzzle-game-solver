@@ -1,0 +1,7 @@
+Algorithm: Breath-First-Search
+Heuristic function: None
+Elapsed time: 0.001998424530029297 s
+Number of steps required: 4
+
+--------------------------------------------------
+

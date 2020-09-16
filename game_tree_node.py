@@ -28,7 +28,7 @@ class GameTreeNode(object):
                 if self._parent is None:
                     self._generate_child(position)
                 else:
-                    if position != self._parent:
+                    if position != self._parent.state.blank_position:
                         self._generate_child(position)
                         
     def _generate_child(self, swap_position):
