@@ -10,7 +10,7 @@ The objective in the game is to begin with an arbitrary configuration of tiles, 
 ## Environment
 Language: Python3.8
 
-Modules: ime
+Modules: time
 
 ## Implementation
 8-Puzzle problem is actually a **state space search** which means to find a path from inital state to goal state.
