@@ -2,7 +2,7 @@ from game_state import EightPuzzleGameState
 
 adjacent_tiles = [(1,3),(0,2,4),(1,5),(0,4,6),(1,3,5,7),(2,4,8),(3,7),(4,6,8),(5,7)]
 
-solution_state_as_array = ['1','2','3','4','5','6','7','8','x']
+solution_state_as_array = ['2','8','1','x','4','3','7','6','5']
 
 class GameTreeNode(object):
     """A node belonging to a game tree.

@@ -13,7 +13,7 @@ class Solution(object):
     
     def __init__(self, game_state_as_array):
         self._initial_node = GameTreeNode(game_state_as_array, None)
-        self._target_state = EightPuzzleGameState(['1', '2', '3', '4', '5', '6', '7', '8', 'x'])
+        self._target_state = EightPuzzleGameState(['2','8','1','x','4','3','7','6','5'])
         self._solution_path = []
         self._elapsed_time = None
         self._target_node = None
@@ -38,6 +38,66 @@ class Solution(object):
         else:
             return 0
         
+    def show_path(self):
+        """Show the path from initial node to target node in report
+        """
+        solution_path = self._solution_path[::-1]
+        size = len(solution_path)
+        counter = 0
+        G1 = []
+        G2 = []
+        G3 = []
+        while size >= 0:
+            L1 = []
+            L2 = []
+            L3 = []
+            if size >= 5:
+                for x in range(0,5):
+                    L1.append(solution_path[counter+x][0:3])
+                    L2.append(solution_path[counter+x][3:6])
+                    L3.append(solution_path[counter+x][6:])
+                counter += 5
+                size -= 5
+                G1.append(L1)
+                G2.append(L2)
+                G3.append(L3)
+            else:
+                for x in range(0,size):
+                    L1.append(solution_path[counter+x][0:3])
+                    L2.append(solution_path[counter+x][3:6])
+                    L3.append(solution_path[counter+x][6:])
+                counter += 5
+                size -= 5
+                G1.append(L1)
+                G2.append(L2)
+                G3.append(L3) 
+        str1 = ""
+        str2 = ""
+        str3 = ""
+        for x in range(0,len(G1)):
+            for y in range(0,len(G1[x])):
+                str1 += G1[x][y]
+                str1 += "      "
+                str2 += G2[x][y]
+                str2 += "  =>  "
+                str3 += G3[x][y]
+                str3 += "      "
+        str1.strip()
+        str2 = str2[0:len(str2)-5]
+        str3.strip()
+        G = ""
+        i = 0
+        while i<len(str1):
+            G += str1[i:i+45]
+            G += "\n"
+            G += str2[i:i+45]
+            G += "\n"
+            G += str3[i:i+45]
+            G += "\n"
+            G += "\n"
+            i += 45
+        return G
+    
     @property
     def initial_node(self):
         """Gets the initial node"""

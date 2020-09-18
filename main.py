@@ -13,7 +13,7 @@ def main():
         output_file.write("Heuristic function: "+solution.heuristic_estimate+"\n")
         output_file.write("Elapsed time: "+str(solution.elapsed_time)+" s\n")
         output_file.write("Number of steps required: "+str(solution.count_step())+"\n\n")
-        # output_file.write(solution.showPath())
+        output_file.write(solution.show_path())
         output_file.write("--------------------------------------------------\n\n")
 
 
