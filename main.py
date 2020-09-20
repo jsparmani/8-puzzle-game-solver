@@ -1,4 +1,7 @@
 from BFSSolution import *
+from BestFirstSearchSolution import *
+from DescentHillClimbing import *
+from AStarSolution import *
 
 def main():
     """A function demonstrating the use of the GameTreeNode class.
@@ -8,6 +11,33 @@ def main():
     
     with open('D:\Study Material\Sem V\AI\Lab\8Puzzle\output.txt','a') as output_file:
         solution = BFSSolution(game_state_as_array)
+        solution.perform_search_method()
+        output_file.write("Algorithm: "+solution.method_name+"\n")
+        output_file.write("Heuristic function: "+solution.heuristic_estimate+"\n")
+        output_file.write("Elapsed time: "+str(solution.elapsed_time)+" s\n")
+        output_file.write("Number of steps required: "+str(solution.count_step())+"\n\n")
+        output_file.write(solution.show_path())
+        output_file.write("--------------------------------------------------\n\n")
+        
+        solution = BestFirstSearchSolution(game_state_as_array)
+        solution.perform_search_method()
+        output_file.write("Algorithm: "+solution.method_name+"\n")
+        output_file.write("Heuristic function: "+solution.heuristic_estimate+"\n")
+        output_file.write("Elapsed time: "+str(solution.elapsed_time)+" s\n")
+        output_file.write("Number of steps required: "+str(solution.count_step())+"\n\n")
+        output_file.write(solution.show_path())
+        output_file.write("--------------------------------------------------\n\n")
+        
+        solution = HillClimbingSolution(game_state_as_array)
+        solution.perform_search_method()
+        output_file.write("Algorithm: "+solution.method_name+"\n")
+        output_file.write("Heuristic function: "+solution.heuristic_estimate+"\n")
+        output_file.write("Elapsed time: "+str(solution.elapsed_time)+" s\n")
+        output_file.write("Number of steps required: "+str(solution.count_step())+"\n\n")
+        output_file.write(solution.show_path())
+        output_file.write("--------------------------------------------------\n\n")
+        
+        solution = AStarSolution(game_state_as_array)
         solution.perform_search_method()
         output_file.write("Algorithm: "+solution.method_name+"\n")
         output_file.write("Heuristic function: "+solution.heuristic_estimate+"\n")

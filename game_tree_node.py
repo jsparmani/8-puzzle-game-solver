@@ -2,7 +2,7 @@ from game_state import EightPuzzleGameState
 
 adjacent_tiles = [(1,3),(0,2,4),(1,5),(0,4,6),(1,3,5,7),(2,4,8),(3,7),(4,6,8),(5,7)]
 
-solution_state_as_array = ['2','8','1','x','4','3','7','6','5']
+solution_state_as_array = ['1', '2', '3', '8', 'x', '4', '7', '6', '5']
 
 class GameTreeNode(object):
     """A node belonging to a game tree.
@@ -18,7 +18,8 @@ class GameTreeNode(object):
         self._state = EightPuzzleGameState(game_state_as_array)
         self._parent = parent_node
         self._children = []
-        
+        self._value = 0
+
     def generate_children(self):
         """Generates children based on each distinct possible next move of the blank tile according to the adjacent_tiles dictionary.
         """
@@ -68,14 +69,3 @@ class GameTreeNode(object):
         return str(self._state)
     
     __str__ = __repr__
-    
-    def __cmp__(self, other):
-        """Setup the compare function for GameTreeNode object
-           Consider the value attribute when comparing
-        """
-        if self._value < other._value:
-            return -1
-        elif self._value > other._value:
-            return 1
-        else:
-            return 0

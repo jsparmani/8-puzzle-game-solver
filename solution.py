@@ -13,7 +13,7 @@ class Solution(object):
     
     def __init__(self, game_state_as_array):
         self._initial_node = GameTreeNode(game_state_as_array, None)
-        self._target_state = EightPuzzleGameState(['2','8','1','x','4','3','7','6','5'])
+        self._target_state = EightPuzzleGameState(['1', '2', '3', '8', 'x', '4', '7', '6', '5'])
         self._solution_path = []
         self._elapsed_time = None
         self._target_node = None
